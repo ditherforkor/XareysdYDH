@@ -16,12 +16,6 @@ from dowhy.utils.graph_operations import is_connected,convert_to_undirected_grap
 def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
-def convert_to_binary(x, stochastic=True):
-    p = sigmoid(x)
-    if stochastic:
-        return choice([0, 1], 1, p=[1-p, p])
-    else:
-        return int(p > 0.5)
 
 def stochastically_convert_to_three_level_categorical(x):
     p = sigmoid(x)
